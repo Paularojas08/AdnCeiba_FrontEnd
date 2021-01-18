@@ -1,0 +1,81 @@
+<h1>Registrar Pedido</h1>
+
+<div class="row">
+  <div class="col-sm-2">
+    <label>Municipio:</label>
+  </div>
+  <div class="col-sm-4">
+    <select [(ngModel)]="municipioSeleccionadoOpcion">
+      <option *ngFor="let opt of municipios | async" [value]="opt.id">{{opt.nombre}}</option>
+    </select>
+  </div>
+</div>
+
+<hr>
+
+<form [formGroup]="pedidoForm">
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Nombre cliente:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="nombreCliente" name="nombreCliente" placeholder="Nombre Cliente" class="form-control"
+        formControlName="nombreCliente">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Cedula cliente:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="number" id="cedulaCliente" name="cedulaCliente" placeholder="Cedula cliente"
+        class="form-control" formControlName="cedulaCliente">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Direccion:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="direccion" name="direccion" placeholder="Direccion cliente"
+        class="form-control" formControlName="direccion">
+    </div>
+  </div>
+</form>
+
+<hr>
+<div class="row">
+  <div class="col-sm-2">
+    <label>Agregar Productos:</label>
+  </div>
+  <div class="col-sm-6">
+    <select [(ngModel)]="productoSeleccionadoOpcion">
+      <option *ngFor="let opt of productos | async" [value]="opt.codigo">{{opt.nombre + ' - ' + opt.codigo}}</option>
+    </select>
+
+    <input type="number" [(ngModel)]="cantidadAgregar" placeholder="Cantidad..."/>
+  </div>
+  <div class="col.sm-4">
+    <button type="button" (click)="agregarProducto()">Agregar +</button>
+  </div>
+</div>
+
+<div class="row">
+  <table>
+    <tr>
+        <th>Codigo</th>
+        <th>Cantidad</th>
+    </tr>
+    <ng-container *ngFor="let item of productosAgregados">
+      <tr *ngIf="item">
+        <td>{{item.cantidad}}</td>
+        <td>{{item.codigoProducto}}</td>
+        <td><button type="button" (click)="eliminarProducto(item)">Eliminar</button></td>
+      </tr>
+    </ng-container>
+  </table>
+</div>
+
+<div class="row">
+  <button type="button" (click)="crear()">Enviar Pedido</button>
+</div>

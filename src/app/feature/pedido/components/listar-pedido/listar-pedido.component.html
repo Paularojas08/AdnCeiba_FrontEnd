@@ -1,0 +1,9 @@
+<p>listar-producto works!</p>
+<div id="pedidos">
+  <ul class="pedidos">
+    <li *ngFor="let item of listaPedidos | async">
+      <span>{{item.identificadorSeguimiento}}</span> {{item.fechaPedido}}
+      <button type="button" (click)="eliminar(item.id)">Eliminar x</button>
+    </li>
+  </ul>
+</div>

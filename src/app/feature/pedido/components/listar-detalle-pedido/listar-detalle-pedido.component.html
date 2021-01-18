@@ -1,0 +1,38 @@
+<p>listar-detalle-pedido works!</p>
+
+
+<p>Numero de seguimiento:</p>
+<input type="text" name="numeroseguimiento" [(ngModel)]="numeroSeguimiento"/>
+
+<button type="button" (click)="ver()">Ver</button>
+
+<div *ngIf="verDetalle">
+    <label>Cedula:</label>
+    <label>{{pedido.cedula}}</label>
+
+    <label>identificador seguimiento:</label>
+    <label>{{pedido.identificadorSeguimiento}}</label>
+
+    <label>Fecha pedido:</label>
+    <label>{{pedido.fechaPedido}}</label>
+
+    <label>Fecha Envio:</label>
+    <label>{{pedido.fechaEnvio}}</label>
+
+    <label>Precio total:</label>
+    <label>{{pedido.precioTotal}}</label>
+
+    <label>Estado:</label>
+    <label>{{pedido.estado}}</label>
+
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>cantidad</th>
+        </tr>
+        <tr *ngFor="let detalle of pedido.detallePedido">
+            <td>{{detalle.idProducto}}</td>
+            <td>{{detalle.cantidadPedida}}</td>
+          </tr>
+    </table>
+</div>
