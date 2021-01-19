@@ -1,3 +1,26 @@
-<input name="textUsuario" type="text" placeholder="correo" [(ngModel)]="correo"/>
-<input name="textPass" type="password" placeholder="contraseña" [(ngModel)]="contrasena"/>
-<button type="button" (click)="login()">Login</button>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="correo" [(ngModel)]="correo">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="contraseña" [(ngModel)]="contrasena">
+      <input type="submit" class="fadeIn fourth" value="Ingresar"  (click)="login()">
+   
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Olvidaste tu contraseña?</a>
+    </div>
+
+  </div>
+</div>
+

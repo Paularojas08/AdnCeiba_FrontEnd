@@ -1,0 +1,9 @@
+.v-center{
+    display: flex;
+    align-items: center;
+  }
+  .boton_personalizado{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #b4b4b4;
+      }

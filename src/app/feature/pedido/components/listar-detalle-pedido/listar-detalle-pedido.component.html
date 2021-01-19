@@ -1,38 +1,64 @@
-<p>listar-detalle-pedido works!</p>
 
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
 
-<p>Numero de seguimiento:</p>
-<input type="text" name="numeroseguimiento" [(ngModel)]="numeroSeguimiento"/>
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        </div>
+        <form>
+            <p>Numero de seguimiento:</p>
+            <input type="text" name="numeroseguimiento" [(ngModel)]="numeroSeguimiento" />
+            <input type="submit" class="fadeIn fourth" value="Buscar" (click)="ver()">
 
-<button type="button" (click)="ver()">Ver</button>
-
+        </form>
+    </div>
+</div>
 <div *ngIf="verDetalle">
-    <label>Cedula:</label>
-    <label>{{pedido.cedula}}</label>
+    <div class="container">
+        <h2>Detalle del pedido</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cedula Destinatario</th>
+                    <th>Fecha pedido</th>
+                    <th>Fecha envio</th>
+                    <th>Valor a pagar</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{pedido.cedula}}</td>
+                    <td>{{pedido.fechaPedido}}</td>
+                    <td>{{pedido.fechaEnvio}}</td>
+                    <td>{{pedido.precioTotal}}</td>
+                    <td>{{pedido.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <label>identificador seguimiento:</label>
-    <label>{{pedido.identificadorSeguimiento}}</label>
-
-    <label>Fecha pedido:</label>
-    <label>{{pedido.fechaPedido}}</label>
-
-    <label>Fecha Envio:</label>
-    <label>{{pedido.fechaEnvio}}</label>
-
-    <label>Precio total:</label>
-    <label>{{pedido.precioTotal}}</label>
-
-    <label>Estado:</label>
-    <label>{{pedido.estado}}</label>
-
-    <table>
-        <tr>
-            <th>Producto</th>
-            <th>cantidad</th>
-        </tr>
-        <tr *ngFor="let detalle of pedido.detallePedido">
-            <td>{{detalle.idProducto}}</td>
-            <td>{{detalle.cantidadPedida}}</td>
-          </tr>
-    </table>
+</div>
+<div *ngIf="verDetalle">
+    <div class="container">
+        <h2>Productos solicitados</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo producto</th>
+                    <th>Nombre</th>
+                    <th>cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detalle of pedido.detallePedido">
+                <td>{{detalle.idProducto}}</td>
+                <td>{{detalle.idProducto}}</td>
+                <td>{{detalle.cantidadPedida}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
