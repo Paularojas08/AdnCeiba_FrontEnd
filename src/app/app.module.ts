@@ -8,18 +8,22 @@ import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PedidoModule } from '@pedido/pedido.module';
+import { LoginComponent } from './feature/login/login.component';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
     CoreModule,
-    PedidoModule
+    PedidoModule,
+    SharedModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { MunicipioService } from '@pedido/shared/service/municipio.service';
 import { ProductoService } from '@pedido/shared/service/producto.service';
 import { Router } from '@angular/router';
+import { SeguridadService } from '@core/services/seguridad.service';
 
 @Component({
   selector: 'app-crear-pedido',
@@ -24,7 +25,8 @@ export class CrearPedidoComponent implements OnInit {
   public municipioSeleccionadoOpcion: number;
   public cantidadAgregar: number;
 
-  constructor(protected pedidoServices: PedidoService, protected municipioServices: MunicipioService, protected productoServices: ProductoService, private router: Router) { }
+  constructor(protected pedidoServices: PedidoService, protected municipioServices: MunicipioService, 
+    protected productoServices: ProductoService, private router: Router, protected seguridadService: SeguridadService) { }
 
   ngOnInit() {
     this.construirFormularioProducto();
@@ -82,7 +84,7 @@ export class CrearPedidoComponent implements OnInit {
     this.solicitudPedido.nombreCompleto = this.pedidoForm.value.nombreCliente;
     this.solicitudPedido.cedula = this.pedidoForm.value.cedulaCliente;
     this.solicitudPedido.direccion = this.pedidoForm.value.direccion;
-    this.solicitudPedido.idUsuario = 1;
+    this.solicitudPedido.idUsuario = this.seguridadService.obtenerUsuarioSession().id;
     this.pedidoServices.crear(this.solicitudPedido).subscribe(() => this.manejarCreacionPedidoExitosa());
   }
 

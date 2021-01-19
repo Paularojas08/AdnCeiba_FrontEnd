@@ -38,6 +38,9 @@
       ],
       "@pedido/*": [
         "src/app/feature/pedido/*"
+      ],
+      "@seguridad/*": [
+        "src/app/feature/seguridad/*"
       ]
     }
   },

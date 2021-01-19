@@ -14,6 +14,7 @@ export class AppComponent {
     { url: '/home', nombre: 'home' },
     { url: '/pedido/detalle', nombre: 'pedido detalle' },
     { url: '/pedido/crear', nombre: 'crear pedido' },
-    { url: '/pedido', nombre: 'ver Pedidos' }
+    { url: '/pedido', nombre: 'ver Pedidos' },
+    { url: '/login', nombre: 'login' }
   ];
 }
