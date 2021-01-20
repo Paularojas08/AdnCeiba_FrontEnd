@@ -28,7 +28,7 @@ export class SeguridadService {
     sessionStorage.clear();
   }
 
-  public estaAutenticado() {
+  public estaAutenticado(): boolean {
     const usuario = sessionStorage.getItem(this.USER_SESSION_KEY);
     if(usuario) {
       return true;

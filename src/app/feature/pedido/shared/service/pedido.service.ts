@@ -19,6 +19,10 @@ export class PedidoService {
     return this.http.doPost<Pedido, Respuesta<number>>(`${environment.endpoint}${this.PATH_BASE}`, solicitudPedido, this.http.optsName('crear/crear pedido'));  
   }
 
+  public editar(pedido: Pedido) {
+    return this.http.doPut<Pedido, Respuesta<Pedido>>(`${environment.endpoint}${this.PATH_BASE}`, pedido, this.http.optsName('actualizar/actualizar pedido'));  
+  }
+
   public eliminar(id: number) {
     return this.http.doDelete<any>(`${environment.endpoint}${this.PATH_BASE}/${id}`, this.http.optsName('eliminar/eliminar pedido'));  
   }

@@ -12,3 +12,11 @@ export class Pedido {
     idUsuario: number;
     detallePedido: DetallePedido[];
 }
+
+export enum Estado {
+    CREADO = 'CREADO',
+    PENDIENTE = 'PENDIENTE',
+    PROCESANDO = 'PROCESANDO', 
+    ENVIADO = 'ENVIADO', 
+    ENTREGADO = 'ENTREGADO'
+}

@@ -4,6 +4,8 @@
   <div class="row">
     <div class="col-md-6">
       <label>Municipio:</label>
+    </div>
+    <div class="col-md-6">
       <select [(ngModel)]="municipioSeleccionadoOpcion" class="form-select form-select-sm">
         <option *ngFor="let opt of municipios | async" [value]="opt.id">{{opt.nombre}}</option>
       </select>
@@ -31,48 +33,57 @@
 
   <hr>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
       <label>Productos:</label>
+    </div>
+    <div class="col-md-3">
       <select [(ngModel)]="productoSeleccionadoOpcion" class="form-select form-select-sm">
         <option *ngFor="let opt of productos | async" [value]="opt.codigo">{{opt.nombre + ' - ' + opt.codigo}}
         </option>
       </select>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
       <label>Cantidad:</label>
+    </div>
+    <div class="col-md-3">
       <input type="number" [(ngModel)]="cantidadAgregar" placeholder="Cantidad..." />
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col-md-6">
-      <button type="button" class="btn btn-primary btn-success" (click)="agregarProducto()"><span
-          class="glyphicon glyphicon-plus"></span>Agregar</button>
+      <button type="button" class="btn btn-primary btn-success" style="margin-block-end: 2%;"
+        (click)="agregarProducto()"><span class="glyphicon glyphicon-plus"></span>Agregar</button>
     </div>
   </div>
   <div class="row">
-    <div class="table-responsive">
-      <table>
-        <thead>
-          <tr>
-            <th>Codigo</th>
-            <th>Cantidad</th>
-          </tr>
-        </thead>
-        <ng-container *ngFor="let item of productosAgregados">
-          <tr *ngIf="item">
-            <td>{{item.cantidad}}</td>
-            <td>{{item.codigoProducto}}</td>
-            <td><button type="button" (click)="eliminarProducto(item)">Eliminar</button></td>
-          </tr>
-        </ng-container>
-      </table>
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <ng-container *ngFor="let item of productosAgregados">
+            <tr *ngIf="item">
+              <td>{{item.cantidad}}</td>
+              <td>{{item.codigoProducto}}</td>
+              <td>
+                <button class="btn btn-danger btn-xs" type="button" (click)="eliminarProducto(item)"><span
+                    class="glyphicon glyphicon-trash"></span></button>
+              </td>
+            </tr>
+          </ng-container>
+        </table>
+      </div>
     </div>
   </div>
 
   <div class="row">
-
-    <button type="button" class="btn boton_personalizado" (click)="crear()">Enviar Pedido</button>
+    <div class="col-md-6">
+      <button type="button" class="btn  btn-lg" style="width: 100%; margin-block-end: 2%;" (click)="crear()">Enviar Pedido</button>
+    </div>
   </div>
 </div>

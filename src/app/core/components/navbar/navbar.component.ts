@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from '@core/modelo/menu-item';
+import { SeguridadService } from '@core/services/seguridad.service';
 
 @Component({
   selector: 'app-navbar',
@@ -32,9 +33,16 @@ export class NavbarComponent implements OnInit {
   @Input()
   items: MenuItem[];
 
-  constructor() { }
+  constructor(protected seguridadService: SeguridadService) { }
 
   ngOnInit() {
   }
 
+  public estaAutenticado(): boolean {
+    return this.seguridadService.estaAutenticado();
+  }
+
+  public cerrarSesion():void{
+    this.seguridadService.cerrarSesion();
+  }
 }
