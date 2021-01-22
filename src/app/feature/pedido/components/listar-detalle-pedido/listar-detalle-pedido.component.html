@@ -9,8 +9,8 @@
         </div>
         <form>
             <p>Numero de seguimiento:</p>
-            <input type="text" name="numeroseguimiento" [(ngModel)]="numeroSeguimiento" />
-            <input type="submit" class="fadeIn fourth" value="Buscar" (click)="ver()">
+            <input type="text" id="numeroseguimiento" name="numeroseguimiento" [(ngModel)]="numeroSeguimiento" />
+            <input type="submit"id="buscar" class="fadeIn fourth" value="Buscar" (click)="ver()">
 
         </form>
     </div>
@@ -18,7 +18,7 @@
 <div *ngIf="verDetalle">
     <div class="container">
         <h2>Detalle del pedido</h2>
-        <table class="table table-striped">
+        <table class="table table-striped" id="tablaDetalle">
             <thead>
                 <tr>
                     <th>Cedula Destinatario</th>

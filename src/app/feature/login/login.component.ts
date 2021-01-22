@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public correo;
   public contrasena;
 
-  constructor(private seguridadService: SeguridadService, protected router: Router) { }
+  constructor(public seguridadService: SeguridadService, protected router: Router) { }
 
   ngOnInit() {}
 

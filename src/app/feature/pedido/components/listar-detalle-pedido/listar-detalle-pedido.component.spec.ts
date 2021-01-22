@@ -1,48 +1,39 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 
-import { ListarProductoComponent } from './listar-producto.component';
+import { ListarDetallePedidoComponent } from './listar-detalle-pedido.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
-import { Producto } from '../../shared/model/producto';
-import { HttpService } from 'src/app/core/services/http.service';
+import { HttpService } from '@core/services/http.service';
+import { PedidoService } from '../../shared/service/pedido.service';
 
-describe('ListarProductoComponent', () => {
-  let component: ListarProductoComponent;
-  let fixture: ComponentFixture<ListarProductoComponent>;
-  let productoService: ProductoService;
-  const listaProductos: Producto[] = [new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')];
+describe('ListarDetallePedidoComponent', () => {
+    let component: ListarDetallePedidoComponent;
+    let fixture: ComponentFixture<ListarDetallePedidoComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ListarProductoComponent],
-      imports: [
-        CommonModule,
-        HttpClientModule,
-        RouterTestingModule
-      ],
-      providers: [ProductoService, HttpService]
-    })
-      .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [ListarDetallePedidoComponent],
+            imports: [
+                CommonModule,
+                HttpClientModule,
+                RouterTestingModule
+            ],
+            providers: [PedidoService,HttpService]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ListarProductoComponent);
-    component = fixture.componentInstance;
-    productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'consultar').and.returnValue(
-      of(listaProductos)
-    );
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ListarDetallePedidoComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
-  });
-});
+    it('Deberia crear pedido sin problema', () => {
+       
+        expect(component).toBeTruthy();
+    });
+
 
 });

@@ -1,39 +1,35 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrearPedidoComponent } from './crear-pedido.component';
+import { LoginComponent } from './login.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SeguridadService } from '@core/services/seguridad.service';
 import { HttpService } from '@core/services/http.service';
-import { ProductoService } from '@pedido/shared/service/producto.service';
-import { MunicipioService } from '@pedido/shared/service/municipio.service';
-import { PedidoService } from '../../shared/service/pedido.service';
-
-describe('CrearPedidoComponent', () => {
-    let component: CrearPedidoComponent;
-    let fixture: ComponentFixture<CrearPedidoComponent>;
+describe('LoginComponent', () => {
+    let component: LoginComponent;
+    let fixture: ComponentFixture<LoginComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [CrearPedidoComponent],
+            declarations: [LoginComponent],
             imports: [
                 CommonModule,
                 HttpClientModule,
                 RouterTestingModule
             ],
-            providers: [SeguridadService,ProductoService,MunicipioService,PedidoService,HttpService]
+            providers: [SeguridadService,HttpService]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(CrearPedidoComponent);
+        fixture = TestBed.createComponent(LoginComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    it('Deberia crear pedido sin problema', () => {
+    it('Deberia loguearse sin problema', () => {
        
         expect(component).toBeTruthy();
     });

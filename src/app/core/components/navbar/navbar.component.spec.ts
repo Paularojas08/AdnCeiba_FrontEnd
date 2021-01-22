@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SeguridadService } from '@core/services/seguridad.service';
 import { NavbarComponent } from './navbar.component';
+import { HttpService } from '@core/services/http.service';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,11 +12,17 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [NavbarComponent],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers: [SeguridadService, HttpService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
